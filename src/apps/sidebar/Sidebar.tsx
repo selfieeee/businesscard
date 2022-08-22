@@ -1,151 +1,146 @@
 import React from "react";
-import { styled, Theme, CSSObject, ThemeProvider, createTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MuiDrawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import {Box, Container, Grid, List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
+import Button, { ButtonProps } from '@mui/material/Button';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import ListIcon from '@mui/icons-material/List';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import MailIcon from '@mui/icons-material/Mail';
-import {Grid} from "@mui/material";
+import { styled } from '@mui/material/styles';
+import { red } from '@mui/material/colors';
 
-const drawerWidth = '20%';
-const drawerMinWidth = 150
 
-const openedMixin = (theme: Theme): CSSObject => ({
-  width: drawerWidth,
-  minWidth: drawerMinWidth,
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: 'hidden',
-});
 
-const closedMixin = (theme: Theme): CSSObject => ({
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: 'hidden',
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
-});
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
-
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    width: drawerWidth,
-    minWidth: drawerMinWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    boxSizing: 'border-box',
-    ...(open && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
-    }),
-    ...(!open && {
-      ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
-    }),
-  }),
-);
-
-const theme = createTheme({
-  components: {
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          marginLeft: '5%',
-          backgroundColor: "#212121",
-          color: "red",
-          boxSizing: "border-box",
-          width: drawerWidth,
-          minWidth: drawerMinWidth
-        }
-      }
-    }
-  }
-});
+function getWindowSize() {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
+}
 
 export const Sidebar = () => {
-  const [open, setOpen] = React.useState(true);
+  const [windowSize, setWindowSize] = React.useState(getWindowSize())
+  const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
+    // color: theme.palette.getContrastText(red[500]),
+    // backgroundColor: red[500],
+    width: windowSize.innerWidth > 1200 ? 160 : 30,
+    '&:hover': {
+      backgroundColor: red[700],
+    },
+  }));
+  React.useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+    window.addEventListener('resize', handleWindowResize);
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
 
+  console.log(windowSize)
   return (
-    <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex'}}>
-        <Drawer variant="permanent" open={open}>
-          {/*<DrawerHeader>*/}
-          {/*  {open && <IconButton onClick={handleDrawerClose}>*/}
-          {/*    {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}*/}
-          {/*  </IconButton>}*/}
-          {/*  {!open && <IconButton*/}
-          {/*    color="inherit"*/}
-          {/*    aria-label="open drawer"*/}
-          {/*    onClick={handleDrawerOpen}*/}
-          {/*    edge="start"*/}
-          {/*    sx={{*/}
-          {/*      marginRight: 0.5,*/}
-          {/*    }}*/}
-          {/*  >*/}
-          {/*    <MenuIcon />*/}
-          {/*  </IconButton>}*/}
-          {/*</DrawerHeader>*/}
-          <Grid sx={{display: 'flex', justifyContent: 'center', minWidth: 150}} id={'myDiv'}>
-          <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+    <Box
+      component="main"
+      sx={{
+        height: '100vh',
+      }}
+    >
+      <Container maxWidth={false}>
+        <Grid
+          container
+        >
+          <Grid
+            item
+            xl={2}
+            lg={2}
+            sm={2}
+            xs={2}
+            sx={{
+              height: '100vh',
+              background: '#212121',
+              minWidth: 192,
+            }}
+          >
+            <Grid
+              id={'header'}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '20vh'
+              }}
+            >
+              <Grid
+                sx={{
+                  width: 30, height: 5, background: 'red', display: 'flex', position: 'absolute', marginRight: 12, marginTop: 7
+                }}
+              ></Grid>
+              <Grid
+                sx={{
+                  width: 30, height: 5, background: 'red', display: 'flex', position: 'absolute', marginRight: 15.1, marginTop: 3.9, transform: 'rotate(90deg)'
+                }}
+              ></Grid>
+              <Typography color={'red'}>
+                Selfie
+              </Typography>
+              <Grid
+                sx={{
+                  width: 30, height: 5, background: 'red', display: 'flex', position: 'absolute', marginLeft: 14.1, marginBottom: 7
+                }}
+              ></Grid>
+              <Grid
+                sx={{
+                  width: 30, height: 5, background: 'red', display: 'flex', position: 'absolute', marginLeft: 17.3, marginBottom: 3.8, transform: 'rotate(90deg)'
+                }}
+              ></Grid>
+
+            </Grid>
+            <Grid
+              item
+              id={'content'}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <List dense={false}>
+                {[
+                  {name: 'one', icon: <HomeIcon sx={{color: 'red'}}/>},
+                  {name: 'two', icon: <PersonIcon sx={{color: 'red'}}/>},
+                  {name: 'three', icon: <ListIcon sx={{color: 'red'}}/>},
+                  {name: 'four', icon: <BusinessCenterIcon sx={{color: 'red'}}/>},
+                  {name: 'five', icon: <MailIcon sx={{color: 'red'}}/>}
+                ].map((item: any) => (
+                  <ListItem key={item.name} sx={{display: 'flex', justifyContent: 'center',}}>
+                    <ColorButton>
+                    <ListItemIcon>
+                      {item.icon}
+                    </ListItemIcon>
+                    {windowSize.innerWidth > 1200 && <ListItemText
+                      primary={item.name}
+                      secondary={false ? 'Secondary text' : null}
+                      sx={{color: 'white'}}
+                    />}
+                    </ColorButton>
+                  </ListItem>
+                ))}
+              </List>
+            </Grid>
           </Grid>
-        </Drawer>
-      </Box>
-    </ThemeProvider>
-    // <Box sx={{ width: 300, height: 400, background: '#fff', marginLeft: 20}}>
+        </Grid>
+      </Container>
+    </Box>
+
+
+    // <Box sx={{height: '100vh'}}>
+    //   <Grid sx={{height: '100%'}}>
+    //     <Grid xs={2} sx={{background: 'red'}}>
     //
+    //     </Grid>
+    //
+    //   </Grid>
     // </Box>
   )
 }
