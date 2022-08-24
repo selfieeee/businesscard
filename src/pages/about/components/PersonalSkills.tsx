@@ -13,8 +13,8 @@ export const PersonalSkills = () => {
   return (
     <Grid className="skills padd-15">
       <Grid className="row">
-        {skillInfo.map((item) => (
-          <Grid className="skill-item padd-15">
+        {skillInfo.map((item, index) => (
+          <Grid className="skill-item padd-15" key={index}>
             <h5>{item.name}</h5>
             <Grid className="progress">
               <Grid className="progress-in" style={{width:`${item.value}%`}}></Grid>

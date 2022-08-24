@@ -21,8 +21,8 @@ export const Educations = () => {
       <Grid className="row">
         <Grid className="timeline-box padd-15">
           <Grid className="timeline shadow-dark">
-            {Educations.map((item) => (
-              <TimeLineItem Data={item}/>
+            {Educations.map((item, index) => (
+              <TimeLineItem Data={item} key={index}/>
             ))}
           </Grid>
         </Grid>

@@ -21,8 +21,8 @@ export const Experience = () => {
       <Grid className="row">
         <Grid className="timeline-box padd-15">
           <Grid className="timeline shadow-dark">
-            {Experience.map((item) => (
-              <TimeLineItem Data={item}/>
+            {Experience.map((item, index) => (
+              <TimeLineItem Data={item} key={index}/>
             ))}
           </Grid>
         </Grid>

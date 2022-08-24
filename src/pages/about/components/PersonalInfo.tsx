@@ -12,8 +12,8 @@ export const PersonalInfo = () => {
   return (
     <Grid className="personal-info padd-15">
       <Grid className="row">
-        {personalInfo.map((item) => (
-          <Grid className="info-item padd-15">
+        {personalInfo.map((item, index) => (
+          <Grid className="info-item padd-15" key={index}>
             <p>{item.name} : <span>{item.value}</span></p>
           </Grid>
         ))}
