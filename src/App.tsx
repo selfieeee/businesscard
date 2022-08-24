@@ -1,47 +1,31 @@
 import React from 'react';
-import './styles.scss';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Sidebar} from "./apps/sidebar/Sidebar";
 import {Settings} from "./apps/settings/Settings";
-import {Grid, List, ListItem} from "@mui/material";
-import {FaHome} from 'react-icons/fa';
-import {FaUser} from 'react-icons/fa';
-import {FaList} from 'react-icons/fa';
-import {FaBriefcase} from 'react-icons/fa';
-import {FaComments} from 'react-icons/fa';
+import {Grid} from "@mui/material";
+import {Home} from "./pages/home/Home";
+import {About} from "./pages/about/About";
+import {Services} from "./pages/services/Services";
+import {Portfolio} from "./pages/portfolio/Portfolio";
+import {Contact} from "./pages/contact/Contact";
 
 
 function App() {
   return (
-    <Grid className="main-content">
-      <Grid className="aside">
-        <Grid className="logo">
-          <a href={"#"}><span>S</span>elfie</a>
-        </Grid>
-        <div className="nav-toggler">
-          <span></span>
-        </div>
-        <List className="nav">
-          <ListItem><a href={"#"} className="active"><i><FaHome className="fa fa-home"/></i> Home</a></ListItem>
-          <ListItem><a href={"#"}><i><FaUser className="fa fa-user"/></i> About</a></ListItem>
-          <ListItem><a href={"#"}><i><FaList className="fa fa-list"/></i> Services</a></ListItem>
-          <ListItem><a href={"#"}><i><FaBriefcase className="fa fa-briefcase"/></i> Portfolio</a></ListItem>
-          <ListItem><a href={"#"}><i><FaComments className="fa fa-comments"/></i> Contact</a></ListItem>
-        </List>
-      </Grid>
+    <Router>
       <Grid className="main-content">
-        <section className="home section">
-          home
-        </section>
+        <Sidebar />
+        <Grid className="main-content">
+          <Routes>
+            <Route path={"/home"} element={<Home />}></Route>
+            <Route path={"/about"} element={<About />}></Route>
+            <Route path={"/services"} element={<Services />}></Route>
+            <Route path={"/portfolio"} element={<Portfolio />}></Route>
+            <Route path={"/contact"} element={<Contact />}></Route>
+          </Routes>
+        </Grid>
       </Grid>
-    </Grid>
-    // <Router>
-    //   <Sidebar />
-    //   <Settings />
-    //   <Routes>
-    //     <Route path={""} element={<></>}></Route>
-    //   </Routes>
-    // </Router>
+    </Router>
   );
 }
 
