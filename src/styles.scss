@@ -28,13 +28,17 @@ body {
   background: var(--bg-black-900);
   min-height: 100vh;
   display: block;
+  padding: 0 30px;
+  opacity: 1;
+
   position: fixed;
   left: 270px;
-  padding: 0 30px;
   top: 0;
   right: 0;
   z-index: 0;
-  opacity: 1;
+}
+.main-content {
+
 }
 .padd-15 {
   padding-left: 15px;
@@ -60,8 +64,13 @@ body {
   color: #ffffff;
   background: var(--skin-color);
   border-radius: 40px;
+  border: none;
   display: inline-block;
   white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
 }
 //aside
 .aside {
@@ -210,13 +219,35 @@ h3.my-profession {
   color: var(--text-black-700);
 }
 .home .home-img {
-  flex: 0 0 40%;
-  max-width: 40%;
+  flex: 0 0 20%;
+  max-width: 20%;
   text-align: center;
   position: relative;
 }
+.home-img::before {
+  content: '';
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-top: 10px solid var(--skin-color);
+  border-left: 10px solid var(--skin-color);
+  left: -20px;
+  top: -40px;
+}
+.home-img::after {
+  content: '';
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-bottom: 10px solid var(--skin-color);
+  border-right: 10px solid var(--skin-color);
+  right: 20px;
+  bottom: -40px;
+}
 .home .home-img img {
   height: 400px;
+  margin: auto;
+  border-radius: 5px;
   width: 300px; //for photo, del after
   background: green; //for photo, del after
 }

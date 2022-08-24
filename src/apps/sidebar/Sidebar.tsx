@@ -9,9 +9,9 @@ export const Sidebar = () => {
       <Grid className="logo">
         <Link to={"/home"}><span>S</span>elfie</Link>
       </Grid>
-      <div className="nav-toggler">
+      <Grid className="nav-toggler">
         <span></span>
-      </div>
+      </Grid>
       <List className="nav">
         <ListItem><Link to={"/home"} className="active"><i><FaHome className="fa fa-home"/></i> Home</Link></ListItem>
         <ListItem><Link to={"/about"}><i><FaUser className="fa fa-user"/></i> About</Link></ListItem>
