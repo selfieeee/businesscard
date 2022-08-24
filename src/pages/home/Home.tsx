@@ -1,6 +1,7 @@
 import React from "react";
 import {Grid} from "@mui/material";
 import {Link} from "react-router-dom";
+import Hero from "./components/hero.jpg";
 import "./Home.scss"
 
 export const Home = () => {
@@ -18,7 +19,7 @@ export const Home = () => {
             <Link to={"/contact"} className="btn hire-me">More About Me</Link>
           </Grid>
           <Grid className="home-img padd-15">
-            <img src="" alt="" />
+            <img src={Hero} alt="" />
           </Grid>
         </Grid>
       </Grid>

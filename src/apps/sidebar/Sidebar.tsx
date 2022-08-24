@@ -2,6 +2,7 @@ import React from "react";
 import {Grid, List, ListItem} from "@mui/material";
 import { Link } from "react-router-dom";
 import {FaBriefcase, FaComments, FaHome, FaList, FaUser} from "react-icons/fa";
+import "./Sidebar.scss";
 
 export const Sidebar = () => {
   return (
