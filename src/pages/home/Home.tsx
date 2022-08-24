@@ -1,6 +1,7 @@
 import React from "react";
 import {Grid} from "@mui/material";
 import {Link} from "react-router-dom";
+import "./Home.scss"
 
 export const Home = () => {
   return (
