@@ -8,7 +8,8 @@ export const PersonalSkills = () => {
     {name: 'JavaScript', value: 70},
     {name: 'HTML', value: 80},
     {name: 'TypeScript', value: 70},
-    {name: 'Redux', value: 45}
+    {name: 'Redux', value: 45},
+    {name: 'React', value: 65},
   ]
   return (
     <Grid className="skills padd-15">

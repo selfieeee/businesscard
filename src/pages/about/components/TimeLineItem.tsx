@@ -3,12 +3,14 @@ import {Grid} from "@mui/material";
 import {FaCalendar} from "react-icons/fa";
 
 interface Data {
-  date: string,
-  title: string,
-  text: string
+  Data: {
+    date: string,
+    title: string,
+    text: string
+  }
 }
 
-export const TimeLineItem = (Props: any) => {
+export const TimeLineItem = (Props: Data) => {
   const Data = Props.Data
   return (
     <Grid className="timeline-item">

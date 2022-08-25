@@ -5,15 +5,10 @@ import {TimeLineItem} from "./TimeLineItem";
 export const Experience = () => {
   const Experience = [
     {
-      date: '2019-2020',
-      title: 'Front-end',
-      text: 'I worked in a team on a React-based project, it was my first project.'
-    },
-    {
-      date: '2021-2022',
-      title: 'Technology',
-      text: 'I have been improving my knowledge in Javascript, TypeScript, React, TypeScript, Redux, SASS preprocessor, putting my knowledge into practice in a working project.'
-    },
+      date: '2019-Present',
+      title: '3rd category Engineer Programmer',
+      text: 'Web and desktop solutions: desktop applications on base electron; websites on react typescript; parser scripts; layouts in Figma; setting up docker containers; ci/cd setup; creating tests in cypress'
+    }
   ]
   return (
     <Grid className="experience padd-15">

@@ -1,12 +1,12 @@
 import React from 'react';
-import {Grid} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 
 export const PersonalInfo = () => {
   const personalInfo = [
     {name: 'Birthday', value: '16 may 1999'},
-    {name: 'Email', value: 'pmihajlov14@gmail.com'},
+    {name: 'Email', value: null, element: <Typography sx={{color: 'var(--text-black-700)'}} component="a" href="mailto:pmihajlov14@gmail.com">pmihajlov14@gmail.com</Typography>},
     {name: 'Age', value: '23'},
-    {name: 'Phone', value: '+7 968 106 03 49'},
+    {name: 'Phone', value: null, element: <Typography sx={{color: 'var(--text-black-700)'}} component="a" href="tel:+79681060349">+7 968 106 03 49</Typography>},
     {name: 'City', value: 'Omsk'}
   ]
   return (
@@ -14,7 +14,7 @@ export const PersonalInfo = () => {
       <Grid className="row">
         {personalInfo.map((item, index) => (
           <Grid className="info-item padd-15" key={index}>
-            <p>{item.name} : <span>{item.value}</span></p>
+            <p>{item.name} : <span>{item.value ? item.value : item.element}</span></p>
           </Grid>
         ))}
       </Grid>
