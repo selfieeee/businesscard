@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 import {Sidebar} from "./apps/sidebar/Sidebar";
 import {Settings} from "./apps/settings/Settings";
 import {Grid} from "@mui/material";
@@ -25,6 +25,7 @@ function App() {
           </Grid>
           <Grid className="desktop">
             <Routes>
+              <Route path="/" element={<Home />} />
               <Route path={"/home"} element={<Home />}></Route>
               <Route path={"/about"} element={<About />}></Route>
               <Route path={"/services"} element={<Services />}></Route>
