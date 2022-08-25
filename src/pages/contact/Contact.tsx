@@ -21,8 +21,8 @@ export const Contact = () => {
         <h3 className="contact-title padd-15">Have You Any Questions?</h3>
       </Grid>
       <Grid className="row">
-        {contactInfo.map((item) => (
-          <Grid className="contact-info-item padd-15">
+        {contactInfo.map((item, index) => (
+          <Grid className="contact-info-item padd-15" key={index}>
             <Grid className="icon">
               <i>{item.icon}</i>
             </Grid>
