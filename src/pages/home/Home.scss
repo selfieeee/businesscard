@@ -31,9 +31,9 @@ h3.my-profession {
   color: var(--text-black-700);
 }
 .home .home-img {
-  flex: 0 0 20%;
-  max-width: 20%;
-  min-width: 400px;
+  flex: 0 0 40%;
+  max-width: 40%;
+  //min-width: 400px;
   text-align: center;
   position: relative;
 }
@@ -63,4 +63,14 @@ h3.my-profession {
   border-radius: 5px;
   //width: 300px; //for photo, del after
   //background: green; //for photo, del after
+}
+
+@media (max-width: 991px) {
+  .home .home-info {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .home .home-img {
+    display: none;
+  }
 }

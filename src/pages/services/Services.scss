@@ -67,3 +67,16 @@
   transition: 0.5s;
   opacity: 1;
 }
+
+@media (max-width: 991px) {
+  .service .service-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .service .service-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

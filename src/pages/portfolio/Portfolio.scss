@@ -1,4 +1,4 @@
-@import "../../../color-1";
+@import "../../color-1";
 
 .portfolio .container {
   padding-bottom: 40px;
@@ -32,4 +32,17 @@
 .portfolio .portfolio-item-inner .portfolio-img img {
   width: 100%;
   display: block;
+}
+
+@media (max-width: 991px) {
+  .portfolio .portfolio-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .portfolio .portfolio-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }

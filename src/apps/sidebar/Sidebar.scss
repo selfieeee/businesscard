@@ -113,3 +113,9 @@
 .aside .nav li a i {
   margin-right: 15px;
 }
+
+@media (max-width: 1199px) {
+  .aside {
+    left: -270px;
+  }
+}
