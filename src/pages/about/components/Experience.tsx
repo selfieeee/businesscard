@@ -6,8 +6,8 @@ export const Experience = () => {
   const Experience = [
     {
       date: '2019-Present',
-      title: '3rd category Engineer Programmer',
-      text: 'Web and desktop solutions: desktop applications on base electron; websites on react typescript; parser scripts; layouts in Figma; setting up docker containers; ci/cd setup; creating tests in cypress'
+      title: '3rd category Software Engineer',
+      text: 'Web and desktop solutions: Electron JS desktop applications; websites using react and typescript; parser scripts; Figma layouts; setting up docker containers; ci/cd setup; creating tests with cypress'
     }
   ]
   return (
