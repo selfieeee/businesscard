@@ -35,39 +35,39 @@ export const Contact = () => {
       <h4 className="contact-sub-title padd-15">I'M VERY RESPONSIVE TO MESSAGE</h4>
       <Grid className="row">
         <Grid className="contact-form padd-15">
-          <Grid className="row">
-            <Grid className="form-item col-6 padd-15">
-              <Grid className="form-group">
-                <input placeholder="Name" className="form-control" type="text" />
+          <form action="mailto:ladis_76@mail.ru" method="post" encType="text/plain">
+            <Grid className="row">
+              <Grid className="form-item col-6 padd-15">
+                <Grid className="form-group">
+                  <input placeholder="Name" className="form-control" type="text" name="FirstName"/>
+                </Grid>
+              </Grid>
+              <Grid className="form-item col-6 padd-15">
+                <Grid className="form-group">
+                  <input placeholder="Email " className="form-control" type="email" name="Email"/>
+                </Grid>
               </Grid>
             </Grid>
-            <Grid className="form-item col-6 padd-15">
-              <Grid className="form-group">
-                <input placeholder="Email" className="form-control" type="email" />
+            <Grid className="row">
+              <Grid className="form-item col-12 padd-15">
+                <Grid className="form-group">
+                  <input name="subject" placeholder="Subject" className="form-control" type="text" />
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid className="row">
-            <Grid className="form-item col-12 padd-15">
-              <Grid className="form-group">
-                <input placeholder="Subject" className="form-control" type="text" />
+            <Grid className="row">
+              <Grid className="form-item col-12 padd-15">
+                <Grid className="form-group">
+                  <textarea name="message" className="form-control" id="" placeholder="Message"></textarea>
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid className="row">
-            <Grid className="form-item col-12 padd-15">
-              <Grid className="form-group">
-                <textarea name="" className="form-control" id="" placeholder="Message"></textarea>
+            <Grid className="row">
+              <Grid className="form-item col-12 padd-15">
+                <button type="submit" className="btn">Send Message</button>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid className="row">
-            <Grid className="form-item col-12 padd-15">
-
-              <button type="submit" className="btn">Send Message</button>
-
-            </Grid>
-          </Grid>
+          </form>
         </Grid>
       </Grid>
     </section>
