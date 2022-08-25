@@ -16,13 +16,13 @@ function App() {
       <Grid className="main-content">
         <Sidebar />
         <Grid className="main-content">
-          <Grid className="mobile">
-            <Home />
-            <About />
-            <Services />
-            <Portfolio />
-            <Contact />
-          </Grid>
+          {/*<Grid className="mobile">*/}
+          {/*  <Home />*/}
+          {/*  <About />*/}
+          {/*  <Services />*/}
+          {/*  <Portfolio />*/}
+          {/*  <Contact />*/}
+          {/*</Grid>*/}
           <Grid className="desktop">
             <Routes>
               <Route path="/" element={<Home />} />
