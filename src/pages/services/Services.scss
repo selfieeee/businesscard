@@ -15,6 +15,7 @@
   padding: 30px 15px;
   text-align: center;
   transition: all 0.3s ease;
+  height: 250px;
 }
 
 .service .service-item .service-item-inner:hover {
@@ -54,4 +55,15 @@
   color: var(--text-black-900);
   font-weight: 700;
   text-transform: capitalize;
+}
+
+.service-item .service-item-inner p{
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.service-item .service-item-inner:hover p {
+  transform: translateY(0px);
+  transition: 0.5s;
+  opacity: 1;
 }
