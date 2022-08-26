@@ -9,9 +9,11 @@ import {Services} from "./pages/services/Services";
 import {Portfolio} from "./pages/portfolio/Portfolio";
 import {Contact} from "./pages/contact/Contact";
 import {ControllerActivePage} from "./apps/sidebar/controller/ActivePage";
+import {ControllerThemeColor} from "./apps/settings/controller/ThemeColor";
 
 function App() {
   const Controller = ControllerActivePage()
+  const ControllerTheme = ControllerThemeColor()
   return (
     <Router>
       <Grid className="main-content">
@@ -36,7 +38,7 @@ function App() {
           </Grid>
         </Grid>
       </Grid>
-      <Settings />
+      <Settings Controller={ControllerTheme} />
     </Router>
   );
 }

@@ -3,7 +3,6 @@ import {Grid, List, ListItem} from "@mui/material";
 import { Link } from "react-router-dom";
 import {FaBriefcase, FaComments, FaHome, FaList, FaUser} from "react-icons/fa";
 import "./Sidebar.scss";
-import {ControllerActivePage} from "./controller/ActivePage";
 
 export const Sidebar = (Props: {Controller: object}) => {
   const Controller:any = Props.Controller
