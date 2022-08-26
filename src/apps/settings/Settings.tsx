@@ -1,6 +1,6 @@
 import React from "react";
 import {Grid} from "@mui/material";
-import {FaCog, FaMoon} from "react-icons/fa";
+import {FaCog, FaMoon, FaSun} from "react-icons/fa";
 import "./style-switcher.scss"
 
 export const Settings = (Props: {Controller: object}) => {
@@ -24,17 +24,32 @@ export const Settings = (Props: {Controller: object}) => {
     })
   }
 
+  function setDarkLightMode() {
+    document.body.classList.toggle('dark')
+    //@ts-ignore
+    Controller.mode ? document.querySelector(':root').style.setProperty('--bg-black-900', '#151515') : document.querySelector(':root').style.setProperty('--bg-black-900', '#f2f2fc')
+    //@ts-ignore
+    Controller.mode ? document.querySelector(':root').style.setProperty('--bg-black-100', '#222222') : document.querySelector(':root').style.setProperty('--bg-black-100', '#fdf9ff')
+    //@ts-ignore
+    Controller.mode ? document.querySelector(':root').style.setProperty('--bg-black-50', '#393939') : document.querySelector(':root').style.setProperty('--bg-black-50', '#e8dfec')
+    //@ts-ignore
+    Controller.mode ? document.querySelector(':root').style.setProperty('--text-black-900', '#ffffff') : document.querySelector(':root').style.setProperty('--text-black-900', '#302e4d')
+    //@ts-ignore
+    Controller.mode ? document.querySelector(':root').style.setProperty('--text-black-700', '#e9e9e9') : document.querySelector(':root').style.setProperty('--text-black-700', '#504e70')
+  }
+
   React.useEffect(()=>{
     setActiveStyle(activeColor)
+    setDarkLightMode()
   })
 
   return (
     <Grid className='style-switcher' style={{transform: Controller.open ? "translateX(100%)" : "translateX(-25px)"}}>
-      <Grid className="style-switcher-toggle s-icon">
-        <i onClick={() => Controller.handleSetOpen(Controller.open)}><FaCog className="fas fa-spin"/></i>
+      <Grid className="style-switcher-toggle s-icon" onClick={() => Controller.handleSetOpen(Controller.open)}>
+        <i><FaCog className="fas fa-spin"/></i>
       </Grid>
-      <Grid className="day-night s-icon">
-        <i className="fas"><FaMoon /></i>
+      <Grid className="day-night s-icon" onClick={() => Controller.handleChangeMode(Controller.mode)}>
+        <i className="fas">{Controller.mode ? <FaMoon /> : <FaSun />}</i>
       </Grid>
       <h4>Theme Colors</h4>
       <Grid className="colors">
