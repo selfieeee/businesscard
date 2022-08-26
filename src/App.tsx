@@ -9,13 +9,11 @@ import {Services} from "./pages/services/Services";
 import {Portfolio} from "./pages/portfolio/Portfolio";
 import {Contact} from "./pages/contact/Contact";
 
-
 function App() {
   return (
     <Router>
       <Grid className="main-content">
         <Sidebar />
-        <Settings />
         <Grid className="main-content">
           <Grid className="mobile">
             <Home />
@@ -36,6 +34,7 @@ function App() {
           </Grid>
         </Grid>
       </Grid>
+      <Settings />
     </Router>
   );
 }
