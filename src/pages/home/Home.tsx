@@ -4,7 +4,8 @@ import {Link} from "react-router-dom";
 import Hero from "./components/hero.jpg";
 import "./Home.scss"
 
-export const Home = () => {
+export const Home = (Props: {Controller: object}) => {
+  const Controller:any = Props.Controller
   return (
     <section className="home section">
       <Grid className="container">
@@ -16,7 +17,7 @@ export const Home = () => {
               years. My experience is creating websites, tests,
               setting up Docker containers, pipelines and more...
             </p>
-            <Link to={"/contact"} className="btn hire-me">More About Me</Link>
+            <Link to={"/contact"} className="btn hire-me" onClick={()=>Controller.handleSetActive({home: false, about: false, services: false, portfolio: false, contact: true})}>More About Me</Link>
           </Grid>
           <Grid className="home-img padd-15">
             <img src={Hero} alt="" />

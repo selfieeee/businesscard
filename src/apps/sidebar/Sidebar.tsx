@@ -5,8 +5,8 @@ import {FaBriefcase, FaComments, FaHome, FaList, FaUser} from "react-icons/fa";
 import "./Sidebar.scss";
 import {ControllerActivePage} from "./controller/ActivePage";
 
-export const Sidebar = () => {
-  const Controller = ControllerActivePage()
+export const Sidebar = (Props: {Controller: object}) => {
+  const Controller:any = Props.Controller
 
   return (
     <Grid className="aside">
