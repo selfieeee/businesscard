@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid, TextField, Typography} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import {Title} from "./components/Title";
 import "./Contact.scss";
 import {FaPhone} from "react-icons/fa";
