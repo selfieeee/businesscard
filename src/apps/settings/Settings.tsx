@@ -3,8 +3,9 @@ import {Grid} from "@mui/material";
 import {FaCog, FaMoon, FaSun} from "react-icons/fa";
 import "./style-switcher.scss"
 
-export const Settings = (Props: {Controller: object}) => {
-  const Controller:any = Props.Controller
+export const Settings = (Props: {ControllerTheme: object, ControllerLanguage: object}) => {
+  const Controller:any = Props.ControllerTheme
+  const ControllerLang: any = Props.ControllerLanguage
   const colors = ["#ec1839", "#fa5b0f", "#37b182", "#1854b4", "#f021b2"]
   const [activeColor, setActiveColor] = React.useState('color-1')
   //@ts-ignore
@@ -60,6 +61,9 @@ export const Settings = (Props: {Controller: object}) => {
 
   return (
     <Grid className='style-switcher' style={{transform: Controller.open ? "translateX(100%)" : "translateX(-25px)"}}>
+      <Grid className="style-lang s-icon" onClick={() => ControllerLang.handleChangeLang()}>
+        {ControllerLang.lang}
+      </Grid>
       <Grid className="style-switcher-toggle s-icon" onClick={() => Controller.handleSetOpen(Controller.open)}>
         <i><FaCog className="fas fa-spin"/></i>
       </Grid>

@@ -10,10 +10,15 @@ import {Portfolio} from "./pages/portfolio/Portfolio";
 import {Contact} from "./pages/contact/Contact";
 import {ControllerActivePage} from "./apps/sidebar/controller/ActivePage";
 import {ControllerThemeColor} from "./apps/settings/controller/ThemeColor";
+import {i18next} from "./apps/i18n/I18Next";
+import {ControllerLanguage} from "./apps/settings/controller/Language";
 
 function App() {
   const Controller = ControllerActivePage()
   const ControllerTheme = ControllerThemeColor()
+  const ControllerLang = ControllerLanguage()
+  i18next(ControllerLang.lang)
+
   return (
     <Router>
       <Grid className="main-content">
@@ -38,7 +43,7 @@ function App() {
           </Grid>
         </Grid>
       </Grid>
-      <Settings Controller={ControllerTheme} />
+      <Settings ControllerTheme={ControllerTheme} ControllerLanguage={ControllerLang} />
     </Router>
   );
 }
