@@ -1,6 +1,7 @@
 import React from "react";
 import {Grid} from "@mui/material";
 import {Title} from "./components/Title";
+import "./Portfolio.scss";
 
 export const Portfolio = () => {
   return (
@@ -12,50 +13,50 @@ export const Portfolio = () => {
             <h2>My Last Projects :</h2>
           </Grid>
         </Grid>
-        <Grid className="row">
-          <Grid className="portfolio-item padd-15">
-            <Grid className="portfolio-item-inner shadow-dark">
-              <Grid className="portfolio-img">
-                <img src="" alt="" />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid className="portfolio-item padd-15">
-            <Grid className="portfolio-item-inner shadow-dark">
-              <Grid className="portfolio-img">
-                <img src="" alt="" />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid className="portfolio-item padd-15">
-            <Grid className="portfolio-item-inner shadow-dark">
-              <Grid className="portfolio-img">
-                <img src="" alt="" />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid className="portfolio-item padd-15">
-            <Grid className="portfolio-item-inner shadow-dark">
-              <Grid className="portfolio-img">
-                <img src="" alt="" />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid className="portfolio-item padd-15">
-            <Grid className="portfolio-item-inner shadow-dark">
-              <Grid className="portfolio-img">
-                <img src="" alt="" />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid className="portfolio-item padd-15">
-            <Grid className="portfolio-item-inner shadow-dark">
-              <Grid className="portfolio-img">
-                <img src="" alt="" />
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
+        {/*<Grid className="row">*/}
+        {/*  <Grid className="portfolio-item padd-15">*/}
+        {/*    <Grid className="portfolio-item-inner shadow-dark">*/}
+        {/*      <Grid className="portfolio-img">*/}
+        {/*        <img src="" alt="" />*/}
+        {/*      </Grid>*/}
+        {/*    </Grid>*/}
+        {/*  </Grid>*/}
+        {/*  <Grid className="portfolio-item padd-15">*/}
+        {/*    <Grid className="portfolio-item-inner shadow-dark">*/}
+        {/*      <Grid className="portfolio-img">*/}
+        {/*        <img src="" alt="" />*/}
+        {/*      </Grid>*/}
+        {/*    </Grid>*/}
+        {/*  </Grid>*/}
+        {/*  <Grid className="portfolio-item padd-15">*/}
+        {/*    <Grid className="portfolio-item-inner shadow-dark">*/}
+        {/*      <Grid className="portfolio-img">*/}
+        {/*        <img src="" alt="" />*/}
+        {/*      </Grid>*/}
+        {/*    </Grid>*/}
+        {/*  </Grid>*/}
+        {/*  <Grid className="portfolio-item padd-15">*/}
+        {/*    <Grid className="portfolio-item-inner shadow-dark">*/}
+        {/*      <Grid className="portfolio-img">*/}
+        {/*        <img src="" alt="" />*/}
+        {/*      </Grid>*/}
+        {/*    </Grid>*/}
+        {/*  </Grid>*/}
+        {/*  <Grid className="portfolio-item padd-15">*/}
+        {/*    <Grid className="portfolio-item-inner shadow-dark">*/}
+        {/*      <Grid className="portfolio-img">*/}
+        {/*        <img src="" alt="" />*/}
+        {/*      </Grid>*/}
+        {/*    </Grid>*/}
+        {/*  </Grid>*/}
+        {/*  <Grid className="portfolio-item padd-15">*/}
+        {/*    <Grid className="portfolio-item-inner shadow-dark">*/}
+        {/*      <Grid className="portfolio-img">*/}
+        {/*        <img src="" alt="" />*/}
+        {/*      </Grid>*/}
+        {/*    </Grid>*/}
+        {/*  </Grid>*/}
+        {/*</Grid>*/}
       </Grid>
     </section>
   )

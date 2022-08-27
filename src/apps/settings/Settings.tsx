@@ -27,15 +27,30 @@ export const Settings = (Props: {Controller: object}) => {
   function setDarkLightMode() {
     document.body.classList.toggle('dark')
     //@ts-ignore
-    Controller.mode ? document.querySelector(':root').style.setProperty('--bg-black-900', '#151515') : document.querySelector(':root').style.setProperty('--bg-black-900', '#f2f2fc')
-    //@ts-ignore
-    Controller.mode ? document.querySelector(':root').style.setProperty('--bg-black-100', '#222222') : document.querySelector(':root').style.setProperty('--bg-black-100', '#fdf9ff')
-    //@ts-ignore
-    Controller.mode ? document.querySelector(':root').style.setProperty('--bg-black-50', '#393939') : document.querySelector(':root').style.setProperty('--bg-black-50', '#e8dfec')
-    //@ts-ignore
-    Controller.mode ? document.querySelector(':root').style.setProperty('--text-black-900', '#ffffff') : document.querySelector(':root').style.setProperty('--text-black-900', '#302e4d')
-    //@ts-ignore
-    Controller.mode ? document.querySelector(':root').style.setProperty('--text-black-700', '#e9e9e9') : document.querySelector(':root').style.setProperty('--text-black-700', '#504e70')
+    if (Controller.mode) {
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--bg-black-900', '#151515')
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--bg-black-100', '#222222')
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--bg-black-50', '#393939')
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--text-black-900', '#ffffff')
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--text-black-700', '#e9e9e9')
+    } else {
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--bg-black-900', '#f2f2fc')
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--bg-black-100', '#fdf9ff')
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--bg-black-50', '#e8dfec')
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--text-black-900', '#302e4d')
+      //@ts-ignore
+      document.querySelector(':root').style.setProperty('--text-black-700', '#504e70')
+    }
+
   }
 
   React.useEffect(()=>{
