@@ -38,12 +38,12 @@ const App: React.FC = () => {
           </Grid>
           <Grid item className="desktop">
             <Routes>
-              <Route path="/" element={<Home controller={controller} />} />
-              <Route path="/home" element={<Home controller={controller} />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/businesscard" element={<Home controller={controller} />} />
+              <Route path="/businesscard/home" element={<Home controller={controller} />} />
+              <Route path="/businesscard/about" element={<About />} />
+              <Route path="/businesscard/services" element={<Services />} />
+              <Route path="/businesscard/portfolio" element={<Portfolio />} />
+              <Route path="/businesscard/contact" element={<Contact />} />
             </Routes>
           </Grid>
         </Grid>

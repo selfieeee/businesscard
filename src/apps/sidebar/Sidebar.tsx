@@ -44,7 +44,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ controller, isOpen, toggleSide
   return (
     <Grid className={`aside ${isOpen ? 'open' : ''}`}>
       <Grid className="logo">
-        <Link onClick={() => handleClick('home')} to="/home">
+        <Link onClick={() => handleClick('home')} to="/businesscard/home">
           <span>S</span>elfie
         </Link>
       </Grid>
@@ -53,7 +53,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ controller, isOpen, toggleSide
       </Grid>
       <List className="nav">
         <ListItem onClick={() => handleClick('home')}>
-          <Link to="/home" className={controller.active.home ? 'active' : ''}>
+          <Link to="/businesscard/home" className={controller.active.home ? 'active' : ''}>
             <i>
               <FaHome className="fa fa-home" />
             </i>
@@ -61,7 +61,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ controller, isOpen, toggleSide
           </Link>
         </ListItem>
         <ListItem onClick={() => handleClick('about')}>
-          <Link to="/about" className={controller.active.about ? 'active' : ''}>
+          <Link to="/businesscard/about" className={controller.active.about ? 'active' : ''}>
             <i>
               <FaUser className="fa fa-user" />
             </i>
@@ -69,7 +69,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ controller, isOpen, toggleSide
           </Link>
         </ListItem>
         <ListItem onClick={() => handleClick('services')}>
-          <Link to="/services" className={controller.active.services ? 'active' : ''}>
+          <Link to="/businesscard/services" className={controller.active.services ? 'active' : ''}>
             <i>
               <FaList className="fa fa-list" />
             </i>
@@ -77,7 +77,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ controller, isOpen, toggleSide
           </Link>
         </ListItem>
         <ListItem onClick={() => handleClick('portfolio')}>
-          <Link to="/portfolio" className={controller.active.portfolio ? 'active' : ''}>
+          <Link to="/businesscard/portfolio" className={controller.active.portfolio ? 'active' : ''}>
             <i>
               <FaBriefcase className="fa fa-briefcase" />
             </i>
@@ -85,7 +85,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ controller, isOpen, toggleSide
           </Link>
         </ListItem>
         <ListItem onClick={() => handleClick('contact')}>
-          <Link to="/contact" className={controller.active.contact ? 'active' : ''}>
+          <Link to="/businesscard/contact" className={controller.active.contact ? 'active' : ''}>
             <i>
               <FaComments className="fa fa-comments" />
             </i>
