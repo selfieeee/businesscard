@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, List, ListItem } from "@mui/material";
 import { Link } from "react-router-dom";
 import { FaBriefcase, FaComments, FaHome, FaList, FaUser } from "react-icons/fa";
@@ -28,6 +28,18 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ controller, isOpen, toggleSidebar }) => {
   const { t } = useTranslation();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1199);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 1199);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleClick = (section: string) => {
     const newActiveState = {
@@ -38,11 +50,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ controller, isOpen, toggleSide
       contact: section === 'contact',
     };
     controller.handleSetActive(newActiveState);
-    toggleSidebar(); // Закрытие боковой панели после выбора
+    if (isMobile) {
+      toggleSidebar(); // Закрытие боковой панели после выбора на мобильном устройстве
+    }
   };
 
   return (
-    <Grid className={`aside ${isOpen ? 'open' : ''}`}>
+    <Grid className={`aside ${isOpen ? 'open' : 'closed'}`}>
       <Grid className="logo">
         <Link onClick={() => handleClick('home')} to="/businesscard/home">
           <span>S</span>elfie

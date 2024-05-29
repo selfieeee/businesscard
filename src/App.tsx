@@ -28,24 +28,15 @@ const App: React.FC = () => {
     <Router>
       <Grid container className="main-content">
         <Sidebar controller={controller} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <Grid item className="main-content">
-          <Grid item className="mobile">
-            <Home controller={controller} />
-            <About />
-            <Services />
-            <Portfolio />
-            <Contact />
-          </Grid>
-          <Grid item className="desktop">
-            <Routes>
-              <Route path="/businesscard" element={<Home controller={controller} />} />
-              <Route path="/businesscard/home" element={<Home controller={controller} />} />
-              <Route path="/businesscard/about" element={<About />} />
-              <Route path="/businesscard/services" element={<Services />} />
-              <Route path="/businesscard/portfolio" element={<Portfolio />} />
-              <Route path="/businesscard/contact" element={<Contact />} />
-            </Routes>
-          </Grid>
+        <Grid item className={`main-content ${isSidebarOpen ? 'blur' : ''}`}>
+          <Routes>
+            <Route path="/businesscard" element={<Home controller={controller} />} />
+            <Route path="/businesscard/home" element={<Home controller={controller} />} />
+            <Route path="/businesscard/about" element={<About />} />
+            <Route path="/businesscard/services" element={<Services />} />
+            <Route path="/businesscard/portfolio" element={<Portfolio />} />
+            <Route path="/businesscard/contact" element={<Contact />} />
+          </Routes>
         </Grid>
       </Grid>
       <Settings ControllerTheme={controllerTheme} ControllerLanguage={controllerLang} />

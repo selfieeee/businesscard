@@ -10,9 +10,19 @@
   height: 100%;
   border-right: 1px solid var(--bg-black-50);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 10;
+  transition: left 0.3s ease-in-out;
+}
+
+.aside.open {
+  left: 0;
+}
+
+.aside.closed {
+  left: -270px;
 }
 
 .aside .logo {
@@ -21,6 +31,7 @@
   font-size: 30px;
   text-transform: capitalize;
 }
+
 .aside .logo a {
   color: var(--text-black-900);
   font-weight: 700;
@@ -29,44 +40,50 @@
   letter-spacing: 5px;
   position: relative;
 }
+
 .aside .logo a span {
   font-family: 'Clicker Script', cursive;
   font-size: 40px;
 }
-.aside .logo a::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-bottom: 5px solid var(--skin-color);
-  border-left: 5px solid var(--skin-color);
-  bottom: 0;
-  left: 0;
-}
+
+.aside .logo a::before,
 .aside .logo a::after {
   content: '';
   position: absolute;
   width: 20px;
   height: 20px;
+  border: 5px solid var(--skin-color);
+}
+
+.aside .logo a::before {
+  border-bottom: 5px solid var(--skin-color);
+  border-left: 5px solid var(--skin-color);
+  bottom: 0;
+  left: 0;
+}
+
+.aside .logo a::after {
   border-top: 5px solid var(--skin-color);
   border-right: 5px solid var(--skin-color);
   top: 0;
   right: 0;
 }
+
 .aside .nav-toggler {
   height: 40px;
   width: 45px;
   border: 1px solid var(--bg-black-50);
   cursor: pointer;
   position: fixed;
-  left: 300px;
+  left: 20px;
   top: 20px;
   border-radius: 5px;
   background: var(--bg-black-100);
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .aside .nav-toggler span {
   height: 2px;
   width: 18px;
@@ -74,31 +91,37 @@
   display: inline-block;
   position: relative;
 }
-.aside .nav-toggler span::before {
-  content: '';
-  height: 2px;
-  width: 18px;
-  background: var(--skin-color);
-  position: absolute;
-  top: -6px;
-  left: 0;
-}
+
+.aside .nav-toggler span::before,
 .aside .nav-toggler span::after {
   content: '';
   height: 2px;
   width: 18px;
   background: var(--skin-color);
   position: absolute;
+}
+
+.aside .nav-toggler span::before {
+  top: -6px;
+  left: 0;
+}
+
+.aside .nav-toggler span::after {
   top: 6px;
   left: 0;
 }
+
 .aside .nav {
   margin-top: 50px;
+  width: 100%;
 }
+
 .aside .nav li {
   margin-bottom: 20px;
   display: block;
+  width: 100%;
 }
+
 .aside .nav li a {
   font-size: 16px;
   font-weight: 600;
@@ -106,16 +129,28 @@
   border-bottom: 1px solid var(--bg-black-50);
   color: var(--text-black-900);
   padding: 5px 15px;
+  width: 100%;
+  text-align: left;
 }
+
 .aside .nav li a.active {
   color: var(--skin-color);
 }
+
 .aside .nav li a i {
   margin-right: 15px;
 }
 
 @media (max-width: 1199px) {
-  .aside {
+  .aside.closed {
     left: -270px;
+  }
+
+  .aside.open {
+    left: 0;
+  }
+
+  .aside .nav-toggler {
+    display: flex;
   }
 }

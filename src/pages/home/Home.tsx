@@ -42,7 +42,7 @@ export const Home: React.FC<HomeProps> = ({ controller }) => {
             </h3>
             <p>{t('Home.About')}</p>
             <Link
-              to="/contact"
+              to="/businesscard/contact"
               className="btn hire-me"
               onClick={() =>
                 controller.handleSetActive({
