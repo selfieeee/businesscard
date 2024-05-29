@@ -22,20 +22,20 @@ export const Portfolio = () => {
           <Grid className="portfolio-item padd-15">
             <Grid className="portfolio-item-inner shadow-dark">
               <Grid className="portfolio-img">
-                <Link
-                  to="/mygiphy">
+                <a
+                  href="https://selfieeee.github.io/mygiphy/">
                   <img src={MyGiphy} alt="" />
-                </Link>
+                </a>
               </Grid>
             </Grid>
           </Grid>
           <Grid className="portfolio-item padd-15">
             <Grid className="portfolio-item-inner shadow-dark">
               <Grid className="portfolio-img">
-                <Link
-                  to="/creditcard">
+                <a
+                  href="https://selfieeee.github.io/creditcard/">
                   <img src={CreditCard} alt="" />
-                </Link>
+                </a>
               </Grid>
             </Grid>
           </Grid>
