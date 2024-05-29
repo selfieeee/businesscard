@@ -1,16 +1,16 @@
 import React from 'react';
 
 export const ControllerThemeColor = () => {
-  const [open, setOpen] = React.useState(true)
-  const [mode, setMode] = React.useState(false)
+  const [open, setOpen] = React.useState(true);
+  const [mode, setMode] = React.useState(false);
 
-  const handleSetOpen = (state: boolean) => {
-    setOpen(!state)
-  }
+  const handleSetOpen = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
 
-  const handleChangeMode = (state: boolean) => {
-    setMode(!mode)
-  }
+  const handleChangeMode = () => {
+    setMode((prevMode) => !prevMode);
+  };
 
-  return {open, handleSetOpen, mode, handleChangeMode}
-}
+  return { open, handleSetOpen, mode, handleChangeMode };
+};

@@ -1,84 +1,69 @@
-import React from "react";
-import {Grid} from "@mui/material";
-import {FaCog, FaMoon, FaSun} from "react-icons/fa";
-import "./style-switcher.scss"
+import React, { useEffect, useState } from "react";
+import { Grid } from "@mui/material";
+import { FaCog, FaMoon, FaSun } from "react-icons/fa";
+import "./style-switcher.scss";
 
-export const Settings = (Props: {ControllerTheme: object, ControllerLanguage: object}) => {
-  const Controller:any = Props.ControllerTheme
-  const ControllerLang: any = Props.ControllerLanguage
-  const colors = ["#ec1839", "#fa5b0f", "#37b182", "#1854b4", "#f021b2"]
-  const [activeColor, setActiveColor] = React.useState('color-1')
-  //@ts-ignore
-  const alternateStyles = document.querySelectorAll('.alternate-style')
-  function setActiveStyle(color:any) {
-    alternateStyles.forEach((style, index) => {
-      //@ts-ignore
-      color === "color-1" && document.querySelector(':root').style.setProperty('--skin-color',colors[0]);
-      //@ts-ignore
-      color === "color-2" && document.querySelector(':root').style.setProperty('--skin-color',colors[1]);
-      //@ts-ignore
-      color === "color-3" && document.querySelector(':root').style.setProperty('--skin-color',colors[2]);
-      //@ts-ignore
-      color === "color-4" && document.querySelector(':root').style.setProperty('--skin-color',colors[3]);
-      //@ts-ignore
-      color === "color-5" && document.querySelector(':root').style.setProperty('--skin-color',colors[4]);
-    })
-  }
+interface SettingsProps {
+  ControllerTheme: {
+    open: boolean;
+    mode: boolean;
+    handleSetOpen: () => void;
+    handleChangeMode: () => void;
+  };
+  ControllerLanguage: {
+    lang: string;
+    handleChangeLang: () => void;
+  };
+}
 
-  function setDarkLightMode() {
-    document.body.classList.toggle('dark')
-    //@ts-ignore
-    if (Controller.mode) {
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--bg-black-900', '#151515')
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--bg-black-100', '#222222')
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--bg-black-50', '#393939')
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--text-black-900', '#ffffff')
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--text-black-700', '#e9e9e9')
+export const Settings: React.FC<SettingsProps> = ({ ControllerTheme, ControllerLanguage }) => {
+  const colors = ["#ec1839", "#fa5b0f", "#37b182", "#1854b4", "#f021b2"];
+  const [activeColor, setActiveColor] = useState('color-1');
+
+  const setActiveStyle = (color: string) => {
+    const colorIndex = parseInt(color.split('-')[1], 10) - 1;
+    document.documentElement.style.setProperty('--skin-color', colors[colorIndex]);
+  };
+
+  const setDarkLightMode = () => {
+    document.body.classList.toggle('dark', ControllerTheme.mode);
+    if (ControllerTheme.mode) {
+      document.documentElement.style.setProperty('--bg-black-900', '#151515');
+      document.documentElement.style.setProperty('--bg-black-100', '#222222');
+      document.documentElement.style.setProperty('--bg-black-50', '#393939');
+      document.documentElement.style.setProperty('--text-black-900', '#ffffff');
+      document.documentElement.style.setProperty('--text-black-700', '#e9e9e9');
     } else {
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--bg-black-900', '#f2f2fc')
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--bg-black-100', '#fdf9ff')
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--bg-black-50', '#e8dfec')
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--text-black-900', '#302e4d')
-      //@ts-ignore
-      document.querySelector(':root').style.setProperty('--text-black-700', '#504e70')
+      document.documentElement.style.setProperty('--bg-black-900', '#f2f2fc');
+      document.documentElement.style.setProperty('--bg-black-100', '#fdf9ff');
+      document.documentElement.style.setProperty('--bg-black-50', '#e8dfec');
+      document.documentElement.style.setProperty('--text-black-900', '#302e4d');
+      document.documentElement.style.setProperty('--text-black-700', '#504e70');
     }
+  };
 
-  }
-
-  React.useEffect(()=>{
-    setActiveStyle(activeColor)
-    setDarkLightMode()
-  })
+  useEffect(() => {
+    setActiveStyle(activeColor);
+    setDarkLightMode();
+  }, [activeColor, ControllerTheme.mode]);
 
   return (
-    <Grid className='style-switcher' style={{transform: Controller.open ? "translateX(100%)" : "translateX(-25px)"}}>
-      <Grid className="style-lang s-icon" onClick={() => ControllerLang.handleChangeLang()}>
-        {ControllerLang.lang}
+    <Grid className='style-switcher' style={{ transform: ControllerTheme.open ? "translateX(100%)" : "translateX(-25px)" }}>
+      <Grid className="style-lang s-icon" onClick={ControllerLanguage.handleChangeLang}>
+        {ControllerLanguage.lang}
       </Grid>
-      <Grid className="style-switcher-toggle s-icon" onClick={() => Controller.handleSetOpen(Controller.open)}>
-        <i><FaCog className="fas fa-spin"/></i>
+      <Grid className="style-switcher-toggle s-icon" onClick={ControllerTheme.handleSetOpen}>
+        <FaCog className="fas fa-spin" />
       </Grid>
-      <Grid className="day-night s-icon" onClick={() => Controller.handleChangeMode(Controller.mode)}>
-        <i className="fas">{Controller.mode ? <FaMoon /> : <FaSun />}</i>
+      <Grid className="day-night s-icon" onClick={ControllerTheme.handleChangeMode}>
+        {ControllerTheme.mode ? <FaMoon /> : <FaSun />}
       </Grid>
       <h4>Theme Colors</h4>
       <Grid className="colors">
-        <span className="color-1" onClick={()=>setActiveColor('color-1')}></span>
-        <span className="color-2" onClick={()=>setActiveColor('color-2')}></span>
-        <span className="color-3" onClick={()=>setActiveColor('color-3')}></span>
-        <span className="color-4" onClick={()=>setActiveColor('color-4')}></span>
-        <span className="color-5" onClick={()=>setActiveColor('color-5')}></span>
+        {colors.map((color, index) => (
+          <span key={index} className={`color-${index + 1}`} onClick={() => setActiveColor(`color-${index + 1}`)}></span>
+        ))}
       </Grid>
-
     </Grid>
-  )
-}
+  );
+};
