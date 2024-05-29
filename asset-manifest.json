@@ -1,14 +1,15 @@
 {
   "files": {
     "main.css": "./static/css/main.c140a950.css",
-    "main.js": "./static/js/main.0cc34ea6.js",
+    "main.js": "./static/js/main.09537a64.js",
     "static/media/hero.jpg": "./static/media/hero.76d5c1aa4fe6e319f099.jpg",
+    "static/media/CreditCard.png": "./static/media/CreditCard.37804da7f5a8ab58dfbf.png",
     "index.html": "./index.html",
     "main.c140a950.css.map": "./static/css/main.c140a950.css.map",
-    "main.0cc34ea6.js.map": "./static/js/main.0cc34ea6.js.map"
+    "main.09537a64.js.map": "./static/js/main.09537a64.js.map"
   },
   "entrypoints": [
     "static/css/main.c140a950.css",
-    "static/js/main.0cc34ea6.js"
+    "static/js/main.09537a64.js"
   ]
 }
