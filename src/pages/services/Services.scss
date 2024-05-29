@@ -60,6 +60,7 @@
 .service-item .service-item-inner p{
   transform: translateY(100px);
   opacity: 0;
+  color: var(--text-black-900);
 }
 
 .service-item .service-item-inner:hover p {

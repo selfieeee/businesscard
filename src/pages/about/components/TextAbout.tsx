@@ -1,15 +1,14 @@
 import React from 'react';
 import {Grid} from "@mui/material";
+import {useTranslation} from "react-i18next";
 
 export const TextAbout = () => {
+  const { t }: any = useTranslation();
   return (
     <Grid className="row">
       <Grid className="about-text padd-15">
-        <h3>I’m Pavel Mikhailov and <span>Web Developer</span></h3>
-        <p>
-          I'm a web Developer with experience for over 3 years.
-          My experience is in creating and maintaining websites.
-        </p>
+        <h3>{t("About.I’m Pavel Mikhailov and")} <span>{t("About.Web Developer")}</span></h3>
+        <p>{t("About.Text")}</p>
       </Grid>
     </Grid>
   )

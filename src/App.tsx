@@ -8,15 +8,24 @@ import {About} from "./pages/about/About";
 import {Services} from "./pages/services/Services";
 import {Portfolio} from "./pages/portfolio/Portfolio";
 import {Contact} from "./pages/contact/Contact";
+import {ControllerActivePage} from "./apps/sidebar/controller/ActivePage";
+import {ControllerThemeColor} from "./apps/settings/controller/ThemeColor";
+import {i18next} from "./apps/i18n/I18Next";
+import {ControllerLanguage} from "./apps/settings/controller/Language";
 
 function App() {
+  const Controller = ControllerActivePage()
+  const ControllerTheme = ControllerThemeColor()
+  const ControllerLang = ControllerLanguage()
+  i18next(ControllerLang.lang)
+
   return (
     <Router>
       <Grid className="main-content">
-        <Sidebar />
+        <Sidebar Controller={Controller}/>
         <Grid className="main-content">
           <Grid className="mobile">
-            <Home />
+            <Home Controller={Controller}/>
             <About />
             <Services />
             <Portfolio />
@@ -24,8 +33,8 @@ function App() {
           </Grid>
           <Grid className="desktop">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path={"/home"} element={<Home />}></Route>
+              <Route path="/" element={<Home Controller={Controller}/>} />
+              <Route path={"/home"} element={<Home Controller={Controller}/>}></Route>
               <Route path={"/about"} element={<About />}></Route>
               <Route path={"/services"} element={<Services />}></Route>
               <Route path={"/portfolio"} element={<Portfolio />}></Route>
@@ -34,7 +43,7 @@ function App() {
           </Grid>
         </Grid>
       </Grid>
-      <Settings />
+      <Settings ControllerTheme={ControllerTheme} ControllerLanguage={ControllerLang} />
     </Router>
   );
 }

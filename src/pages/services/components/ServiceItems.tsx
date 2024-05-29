@@ -1,15 +1,17 @@
 import {Grid} from "@mui/material";
 import React from "react";
 import {FaBullhorn, FaCode, FaLaptopCode, FaMobileAlt, FaPalette, FaSearch} from "react-icons/fa";
+import {useTranslation} from "react-i18next";
 
 export const ServiceItems = () => {
+  const { t }: any = useTranslation();
   const Services = [
-    {title:'Adaptive Layout', icon: <FaMobileAlt className="fa"/>, text: 'I know how to make adaptive interfaces'},
-    {title:'Linux', icon: <FaLaptopCode className="fa"/>, text: 'I work on Linux'},
-    {title:'Sass/Scss', icon: <FaPalette className="fa"/>, text: 'I work with sass/scss preprocessors'},
-    {title:'Code Style', icon: <FaCode className="fa"/>, text: 'I\'m styling my code'},
-    {title:'Search for info', icon: <FaSearch className="fa"/>, text: 'I know how to search information'},
-    {title:'Communication', icon: <FaBullhorn className="fa"/>, text: 'I am sociable'}
+    {title: t('Services.Adaptive Layout'), icon: <FaMobileAlt className="fa"/>, text: t('Services.Text1')},
+    {title: t('Services.Linux'), icon: <FaLaptopCode className="fa"/>, text: t('Services.Text2')},
+    {title: 'Sass/Scss', icon: <FaPalette className="fa"/>, text: t('Services.Text3')},
+    {title: t('Services.Code Style'), icon: <FaCode className="fa"/>, text: t('Services.Text4')},
+    {title: t('Services.Search for info'), icon: <FaSearch className="fa"/>, text: t('Services.Text5')},
+    {title: t('Services.Communication'), icon: <FaBullhorn className="fa"/>, text: t('Services.Text6')}
   ]
   return (
     <Grid className="row">
